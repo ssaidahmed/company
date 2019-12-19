@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="fragments/headTag::head"></div>
+<body>
+<script type="text/javascript" th:src="@{/datatableUtil.js}" defer></script>
+
+<script type="text/javascript" th:src="@{/empDatatable.js}" defer></script>
+
+<div th:replace="fragments/header::header"></div>
+
+
+<div class="container" style="min-height: 500px">
+    <div class="starter-template">
+        <h1>Добавить сотрудника</h1>
+
+        <div id="feedback"></div>
+    <form id="form_add_entity" name="employee" >
+        <input type="hidden" id="id" name="id">
+        <div class="form-group">
+            <label for="name">Ф.И.О</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="Ф.И.О">
+        </div>
+        <div class="form-group">
+            <label for="description">Описание</label>
+            <input type="text" class="form-control" name="description" id="description" placeholder="Описание">
+        </div>
+        <div class="form-group">
+            <label for="departmentId">Выберите отдел</label>
+            <select class="form-control" id="departmentId" name="departmentId">
+                <option selected="selected"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="professionId">Выберите профессию</label>
+            <select class="form-control" id="professionId" name="professionId">
+                <option selected="selected"></option>
+
+            </select>
+        </div>
+
+
+        <input type="button" class="btn btn-dark"  id="bth_add_emp" onclick="save()" value="Отправить">
+    </form>
+    </div>
+
+</div>
+<div class="jumbotron pt-4">
+    <div class="container">
+        <table id="datatable" class="table table-bordered">
+            <thead>
+            <tr>
+
+                <th scope="col">Ф.И.О</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Отдел</th>
+                <th scope="col">Профессия</th>
+                <th scope="col">Обновить</th>
+                <th scope="col">Удалить</th>
+
+            </tr>
+            </thead>
+
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div th:replace="fragments/footer::footer"></div>
+</div>
+
+
+</body>
+</html>
